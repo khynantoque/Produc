@@ -1,4 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Produc</string>
     <string name="subtask_hint_add">Add a subtask</string>
 </resources>
