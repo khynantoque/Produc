@@ -1,13 +1,12 @@
-package com.khynsoft.produc.grouptask.data
+package com.khynsoft.produc.task.data
 
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.time.LocalDate
 
-@Entity(tableName = "group_task_table")
+@Entity(tableName = "task_table")
 @kotlinx.parcelize.Parcelize
-data class GroupTask(
+data class Task(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val name: String,
     val description: String
