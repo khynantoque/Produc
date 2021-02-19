@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.card.MaterialCardView
+        android:id="@+id/task_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="23dp"
@@ -26,27 +27,38 @@
                 android:id="@+id/group_task_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:ellipsize="end"
                 android:fontFamily="@font/NunitoBold"
                 android:maxLines="3"
-                android:ellipsize="end"
-                android:paddingTop="10dp"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
+                android:padding="10dp"
+                android:textAlignment="textStart"
                 android:textSize="20sp"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginEnd="8dp"
-                tools:text="Push the cart"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/card_view_due_time"
+                app:layout_constraintEnd_toEndOf="@id/btn_edit"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Push the cart" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="58dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_edit"
+                app:layout_constraintBottom_toBottomOf="@id/group_task_title"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/card_view_due_time"/>
+                app:layout_constraintStart_toEndOf="@id/group_task_title"
+                app:layout_constraintTop_toTopOf="@id/group_task_title" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_due_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="0dp"
                 android:layout_marginStart="18dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginBottom="10dp"
@@ -71,6 +83,67 @@
                     android:background="@android:color/transparent"/>
 
             </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- SubTask Section -->
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/sub_task_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="23dp"
+        android:layout_marginStart="23dp"
+        android:layout_marginEnd="23dp"
+        android:background="@color/white"
+        android:elevation="10dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/task_card">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginBottom="3dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerview_sub_task"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toTopOf="@id/edit_text_sub_task"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:listitem="@layout/item_subtask" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_add_sub_task"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_margin="4dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_baseline_add_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/edit_text_sub_task"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/recyclerview_sub_task" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/edit_text_sub_task"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginEnd="16dp"
+                android:background="@android:color/transparent"
+                android:hint="@string/subtask_hint_add"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/btn_add_sub_task"
+                app:layout_constraintTop_toBottomOf="@id/recyclerview_sub_task" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
